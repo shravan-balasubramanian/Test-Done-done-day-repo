@@ -1,0 +1,16 @@
+# This workflow is used to create a new release in github backend repo after a release is merged to master.
+name: Auto deploy changes
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  auto_deploy_changes:
+    runs-on: [self-hosted, Linux]
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: print event
+        run: echo event
+      
